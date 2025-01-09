@@ -6,11 +6,11 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const source = urlParams.get('source');
+            const referrer = document.referrer;
+            const validReferrer = "https://linkvertise.com/1277016/keysystem?o=sharing";
 
-            if (source !== 'valid') {
-                window.location.href = "https://linkvertise.com/1277016/keysystem?o=sharing";
+            if (referrer !== validReferrer) {
+                window.location.href = "https://link-hub.net/1277016/keysystem";
             } else {
                 document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
 
@@ -23,14 +23,17 @@
                 document.body.removeChild(tempInput);
 
                 document.getElementById("keyMessage").innerText = "Key already copied: " + key;
+
+                setTimeout(function() {
+                    window.location.href = "https://link-hub.net/1277016/keysystem";
+                }, 5000);
             }
         };
     </script>
 </head>
 <body>
     <h1>Key System</h1>
-    <p id="message">Memeriksa sumber link...</p>
+    <p id="message">Checking...</p>
     <p id="keyMessage"></p>
 </body>
 </html>
-huu
