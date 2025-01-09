@@ -6,21 +6,22 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            const referrer = document.referrer;  //  referer (URL asal)
-            const validReferrer = "https://link-hub.net/1277016/keysystem"; // URL
+            const referrer = document.referrer;  // Mendapatkan referer (URL asal)
+            const validReferrer = "https://link-hub.net/1277016/keysystem"; // URL yang valid
 
-            if (referrer !== validReferrer) {
-                // Jika referer tidak sesuai, arahkan pengguna ke URL yang benar
+            // Cek apakah datang dari link yang valid (Linkvertise atau URL yang diinginkan)
+            if (!referrer.includes(validReferrer)) {
+                // Jika tidak valid, arahkan pengguna kembali ke link yang valid
                 window.location.href = validReferrer;
             } else {
-                // Show message if coming from valid URL
-                document.getElementById("message").innerText = "You came from a valid URL!";
+                // Jika datang dari URL yang valid
+                document.getElementById("message").innerText = "Anda datang dari URL yang valid!";
             }
         };
     </script>
 </head>
 <body>
     <h1>Key System</h1>
-    <p id="message">Checking!...</p>
+    <p id="message">Memeriksa sumber link...</p>
 </body>
 </html>
