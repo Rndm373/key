@@ -6,15 +6,16 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            const referrer = document.referrer;  // Mendapatkan referer (URL asal)
-            const validReferrer = "https://link-hub.net/1277016/keysystem"; // URL yang valid
+            // Ambil parameter 'source' dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = urlParams.get('source');
 
-            // Cek apakah datang dari link yang valid (Linkvertise atau URL yang diinginkan)
-            if (!referrer.includes(validReferrer)) {
-                // Jika tidak valid, arahkan pengguna kembali ke link yang valid
-                window.location.href = validReferrer;
+            // Cek apakah parameter source valid
+            if (source !== 'valid') {
+                // Jika tidak valid, arahkan ke Linkvertise
+                window.location.href = "https://link-hub.net/1277016/keysystem";
             } else {
-                // Jika datang dari URL yang valid
+                // Jika valid, tampilkan pesan
                 document.getElementById("message").innerText = "Anda datang dari URL yang valid!";
             }
         };
