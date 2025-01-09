@@ -6,25 +6,21 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            const key = "X5SpiderWin";
-            const tempInput = document.createElement("input");
-            tempInput.value = key;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
+            const referrer = document.referrer;  // Mendapatkan referer (URL asal)
+            const validReferrer = "https://link-hub.net/1277016/keysystem"; // URL yang valid
 
-            alert("Thank you for passing through Linkvertise.");
-
-            setTimeout(function() {
-                window.location.href = "https://link-hub.net/1277016/keysystem";
-            }, 5000); // Redirect after 5 seconds
-        }
+            if (referrer !== validReferrer) {
+                // Jika referer tidak sesuai, arahkan pengguna ke URL yang benar
+                window.location.href = validReferrer;
+            } else {
+                // Tampilkan pesan jika datang dari URL yang valid
+                document.getElementById("message").innerText = "Anda datang dari URL yang valid!";
+            }
+        };
     </script>
 </head>
 <body>
     <h1>Key System</h1>
-    <p>Key is copied to clipboard.</p>
+    <p id="message">Memeriksa sumber link...</p>
 </body>
 </html>
-  
