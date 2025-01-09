@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key System</title>
+    <script>
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        window.onload = function() {
+            const referrer = document.referrer;
+            const validReferrer = "https://link-hub.net/1277016/keysystem";
+            const hasVisited = getCookie("hasVisited");
+
+            if (hasVisited === "true" || referrer === validReferrer) {
+                document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
+                
+                const key = "X5SpiderWin";
+                const tempInput = document.createElement("input");
+                tempInput.value = key;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                document.getElementById("keyMessage").innerText = "Key already copied: " + key;
+
+                setTimeout(function() {
+                    window.location.href = "https://link-hub.net/1277016/keysystem";
+                }, 5000);
+            } else {
+                window.location.href = "https://link-hub.net/1277016/keysystem";
+                setCookie("hasVisited", "true", 1);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Key System</h1>
+    <p id="message">Checking link source...</p>
+    <p id="keyMessage"></p>
+</body>
+</html>
