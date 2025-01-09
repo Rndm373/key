@@ -6,34 +6,27 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            const referrer = document.referrer;
-            const validReferrer = "https://linkvertise.com/1277016/keysystem?o=sharing";
+            document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
 
-            if (referrer !== validReferrer) {
-                window.location.href = "https://linkvertise.com/1277016/keysystem?o=sharing";
-            } else {
-                document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
+            const key = "X5SpiderWin";
+            const tempInput = document.createElement("input");
+            tempInput.value = key;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
 
-                const key = "X5SpiderWin";
-                const tempInput = document.createElement("input");
-                tempInput.value = key;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempInput);
+            document.getElementById("keyMessage").innerText = "Key already copied: " + key;
 
-                document.getElementById("keyMessage").innerText = "Key already copied: " + key;
-
-                setTimeout(function() {
-                    window.location.href = "https://link-hub.net/1277016/keysystem";
-                }, 5000);
-            }
+            setTimeout(function() {
+                window.location.href = "https://link-hub.net/1277016/keysystem";
+            }, 5000);
         };
     </script>
 </head>
 <body>
     <h1>Key System</h1>
-    <p id="message">Checking...</p>
+    <p id="message">Checking link source...</p>
     <p id="keyMessage"></p>
 </body>
 </html>
