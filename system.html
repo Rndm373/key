@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Key System</title>
+    <script>
+        // Key yang akan disalin
+        const key = "X5SpiderWin";
+        
+        // Fungsi untuk menyalin key ke clipboard
+        function copyKey() {
+            navigator.clipboard.writeText(key).then(() => {
+                alert("Key has been copied to the clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy key:", err);
+            });
+        }
+
+        // Salin key saat halaman dimuat
+        window.onload = copyKey;
+    </script>
+</head>
+<body>
+    <h1>Thank you for passing by Linkvertise!</h1>
+    <p>You key has been Copied.</p>
+</body>
+</html>
