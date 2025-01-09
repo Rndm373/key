@@ -6,8 +6,6 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
-
             const key = "X5SpiderWin";
             const tempInput = document.createElement("input");
             tempInput.value = key;
@@ -16,7 +14,7 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
 
-            document.getElementById("keyMessage").innerText = "Key already copied: " + key;
+            alert("Thank you for passing through Linkvertise! Key already copied.");
 
             setTimeout(function() {
                 window.location.href = "https://link-hub.net/1277016/keysystem";
@@ -26,7 +24,6 @@
 </head>
 <body>
     <h1>Key System</h1>
-    <p id="message">Checking link source...</p>
-    <p id="keyMessage"></p>
+    <p>Thank you for passing through Linkvertise!</p>
 </body>
 </html>
