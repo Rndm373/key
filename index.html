@@ -6,17 +6,23 @@
     <title>Key System</title>
     <script>
         window.onload = function() {
-            // Ambil parameter 'source' dari URL
             const urlParams = new URLSearchParams(window.location.search);
             const source = urlParams.get('source');
 
-            // Cek apakah parameter source valid
             if (source !== 'valid') {
-                // Jika tidak valid, arahkan ke Linkvertise
-                window.location.href = "https://link-hub.net/1277016/keysystem";
+                window.location.href = "https://linkvertise.com/1277016/keysystem?o=sharing";
             } else {
-                // Jika valid, tampilkan pesan
-                document.getElementById("message").innerText = "Anda datang dari URL yang valid!";
+                document.getElementById("message").innerText = "Thank you for passing through Linkvertise!";
+
+                const key = "X5SpiderWin";
+                const tempInput = document.createElement("input");
+                tempInput.value = key;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                document.getElementById("keyMessage").innerText = "Key already copied: " + key;
             }
         };
     </script>
@@ -24,5 +30,7 @@
 <body>
     <h1>Key System</h1>
     <p id="message">Memeriksa sumber link...</p>
+    <p id="keyMessage"></p>
 </body>
 </html>
+huu
