@@ -5,18 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key System</title>
     <script>
-        window.onload = function() {
-            // Ambil parameter 'source' dari URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const source = urlParams.get('source');
+        // Fungsi untuk mengatur cookie
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000)); // Menentukan waktu kadaluarsa cookie
+            document.cookie = name + "=" + value + ";expires=" + expires.toUTCString() + ";path=/";
+        }
 
-            // Cek apakah parameter source valid
-            if (source !== 'valid') {
-                // Jika tidak valid, arahkan ke Linkvertise
-                window.location.href = "https://link-hub.net/1277016/keysystem";
-            } else {
-                // Jika valid, tampilkan pesan
+        // Fungsi untuk mengambil cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        window.onload = function() {
+            const referrer = document.referrer; // Mendapatkan referer
+            const validReferrer = "https://link-hub.net/1277016/keysystem"; // Link yang valid
+            const hasVisited = getCookie("hasVisited");
+
+            // Jika pengguna sudah mengunjungi halaman sebelumnya dan tidak datang dari referer yang valid
+            if (hasVisited === "true" || referrer === validReferrer) {
                 document.getElementById("message").innerText = "Anda datang dari URL yang valid!";
+            } else {
+                // Jika tidak, arahkan pengguna kembali ke link yang valid
+                window.location.href = "https://link-hub.net/1277016/keysystem";
+                setCookie("hasVisited", "true", 1);  // Menyimpan cookie untuk 1 hari
             }
         };
     </script>
